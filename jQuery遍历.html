@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            //遍历 ele.each(function(index,domEle){}) index 索引号domEle Dom对象
+            //each类似隐式for
+            var sum = 0;
+            var arr = ["red", "green", "blue"];
+            $("div").each(function(i, domEle) {
+                $(domEle).css("color", arr[i]);
+            });
+            //累加div元素中的值
+            $("div").each(function(i, domEle) {
+                sum += parseInt($(domEle).html());
+            });
+            console.log(sum);
+            //$.each(obj,function(){}) 主要处理数组数据
+            $.each($("div"), function(i, ele) {
+                    console.log(i);
+                })
+                //类似k in 
+            $.each({
+                name: "abc",
+                age: 18
+            }, function(i, ele) {
+                console.log(i); //i 输出属性名
+                console.log(ele); // ele输出属性值
+            })
+        })
+    </script>
+</body>
+
+</html>

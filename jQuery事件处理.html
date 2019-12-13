@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="jquery.min.js"></script>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ol>
+
+    </ol>
+</body>
+<script>
+    $(function() {
+        $("div").on({
+            mouseenter: function() {
+                $(this).css("background-color", "skyblue");
+            },
+            click: function() {
+                $(this).css("background-color", "purple");
+            },
+            mouseleave: function() {
+                $(this).css("background-color", "red");
+            }
+        });
+        $("div").on("mouseenter mouseleave", function() {
+            console.log(11);
+        });
+        //on可以做事件委托
+        //$("ul li").click(function(){}) ==↓
+        $("ul").on("click", "li", function() {
+            console.log(123);
+        });
+        //可以给未来创建的动态元素li拥有点击事件(绑定事件)
+        $("ol").on("click", "li", function() {
+            console.log(465);
+        });
+        var li = $("<li>我是新来的</li>");
+        $("ol").append(li);
+    })
+</script>
+
+</html>

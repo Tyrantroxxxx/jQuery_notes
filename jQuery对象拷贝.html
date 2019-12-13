@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    $(function() {
+        var targetObj = {};
+        var obj = {
+            id: 1,
+            name: "tyrant",
+            msg: {
+                age: 18
+            }
+        }
+        $.extend(targetObj, obj);
+        console.log(targetObj);
+        //浅copy将obj中的简单对象直接copy,复杂数据类型对象地址给targetObj，当修改其中一个复杂数据类型(msg)会修改两者内容
+        //深copy ： $.extend(true, targetObj, obj)复杂数据类型不会覆盖 而是增加,修改其中一个不会影响另一方的内容
+    })
+</script>
+
+</html>

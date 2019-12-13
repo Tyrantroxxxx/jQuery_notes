@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("div").on("click", function() {
+                alert(11);
+            });
+            //自动触发事件
+            // 1.元素.事件()
+            //$("div").click();
+            // 2.元素.trigger("事件")
+            //$("div").trigger("click");
+            // 3.元素.triggerHandler("事件");//不会触发元素默认行为
+            $("div").triggerHandler("click");
+            $("input").on("focus", function() {
+                $("input").val("好的");
+            });
+            //不会出现光标在里面 outline也不会出现(默认行为)
+            $("input").triggerHandler("focus");
+        });
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <input type="text">
+</body>
+
+</html>
